@@ -19,33 +19,100 @@
 # implemente as funções abaixo e coloque as docstrings
 
 def maximo(nums):
-    """oque faz
-    oque recebe
-    oque retorna"""
-    # TODO: percorra a lista guardando o maior atual
+    """
+    Retorna o maior número de uma lista de números.
+
+    Args:
+        nums (list): Lista de números (int ou float).
+
+    Returns:
+        int/float: O maior número da lista.
+    """
+    if not nums:
+        return None
+    maior = nums[0]
+    for num in nums:
+        if num > maior:
+            maior = num
+    return maior
     ...
 
+
 def e_par(n: int) -> bool:
-    """ ... """
-    # TODO: retorne se n é par
+    """
+    Verifica se um número é par.
+
+    Args:
+        n (int): Número a ser verificado.
+
+    Returns:
+        bool: True se n for par, False caso contrário.
+    """
+    return n % 2 == 0
     ...
+
+
 def fatorial(n: int) -> int:
-    """   ...  """
-    # TODO: implemente de forma iterativa (sem recursão)
+    """
+    Calcula o fatorial de um número de forma iterativa.
+
+    Args:
+        n (int): Número não-negativo.
+
+    Returns:
+        int: Fatorial de n.
+    """
+    if n < 0:
+        raise ValueError("n deve ser não-negativo")
+    resultado = 1
+    for i in range(2, n + 1):
+        resultado *= i
+    return resultado
     ...
 import re
 
+
 def limpa_texto(s: str) -> str:
-    """..."""
-    # TODO: converta s para minúsculo e remova pontuações como ,.;:!?'"()-_
+    """
+    Converte o texto para minúsculo e remove pontuações.
+
+    Args:
+        s (str): Texto a ser limpo.
+
+    Returns:
+        str: Texto normalizado sem pontuações.
+    """
+    s = s.lower()
+    return re.sub(r'[^\w\s]', '', s)
     ...
+
 
 def conta_vogais(s: str) -> int:
-    """....."""
-    # TODO: conte as vogais simples
+    """
+    Conta o número de vogais em uma string.
+
+    Args:
+        s (str): Texto de entrada.
+
+    Returns:
+        int: Quantidade de vogais (a, e, i, o, u) no texto.
+    """
+    s = s.lower()
+    return sum(1 for char in s if char in "aeiou")
+
     ...
 
+
 def palindromo(s: str) -> bool:
-    """..."""
-    # TODO: normalizar (minúsculo, remover não alfanumérico) e comparar com o reverso
+    """
+    Verifica se uma string é um palíndromo.
+
+    Args:
+        s (str): Texto de entrada.
+
+    Returns:
+        bool: True se s for um palíndromo, False caso contrário.
+    """
+    s = re.sub(r'[^a-z0-9]', '', s.lower())
+    return s == s[::-1]
     ...
